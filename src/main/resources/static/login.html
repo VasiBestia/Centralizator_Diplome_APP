@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conectare - Family Docs</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="CSS/global.css" />
+    <link rel="stylesheet" href="CSS/componente.css" />
+    <link rel="stylesheet" href="CSS/auth.css" />
+  </head>
+  <body class="body_login">
+    <div class="fundal_gradient"></div>
+
+    <div class="wrapper_login">
+      <div class="zona_formular_box box_login_special">
+        <div class="header_login">
+          <div class="avatar_cerc logo_login">FD</div>
+          <h2>Portal Documente</h2>
+          <p>Conectează-te pentru a accesa actele familiei</p>
+        </div>
+
+        <form id="loginForm">
+          <div class="grup_form">
+            <label>Adresă Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="ex. ion@familia.ro"
+              required
+              autocomplete="email"
+            />
+          </div>
+
+          <div class="grup_form">
+            <label>Parolă</label>
+            <input
+              type="password"
+              id="parola"
+              placeholder="Introdu parola"
+              required
+              autocomplete="current-password"
+            />
+          </div>
+
+          <div
+            id="mesajEroare"
+            class="mesaj_eroare"
+            style="display: none"
+          ></div>
+
+          <button class="btn_actiune_salvare btn_login" type="submit">
+            <span>Conectare</span>
+          </button>
+
+          <div class="optiuni_cont">
+            <a href="register.html">Nu ai cont? Creează unul</a>
+            <a href="forgot.html">Ai uitat parola?</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="JavaScript/login.js"></script>
+  </body>
+</html>

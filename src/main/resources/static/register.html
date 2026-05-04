@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creează Cont - Family Docs</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="CSS/global.css" />
+    <link rel="stylesheet" href="CSS/componente.css" />
+    <link rel="stylesheet" href="CSS/auth.css" />
+  </head>
+  <body class="body_login">
+    <div class="fundal_gradient"></div>
+
+    <div class="wrapper_login" style="max-width: 500px">
+      <div class="zona_formular_box box_login_special">
+        <div class="header_login">
+          <h2>Alătură-te Familiei</h2>
+          <p>Creează-ți un cont pentru a gestiona documentele</p>
+        </div>
+
+        <form id="registerForm">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px">
+            <div class="grup_form">
+              <label>Nume</label>
+              <input type="text" id="nume" placeholder="Popescu" required />
+            </div>
+            <div class="grup_form">
+              <label>Prenume</label>
+              <input type="text" id="prenume" placeholder="Ion" required />
+            </div>
+          </div>
+
+          <div class="grup_form">
+            <label>CNP</label>
+            <input
+              type="text"
+              id="cnp"
+              placeholder="13 cifre"
+              required
+              maxlength="13"
+            />
+          </div>
+
+          <div class="grup_form">
+            <label>Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="email@exemplu.ro"
+              required
+            />
+          </div>
+
+          <div class="grup_form">
+            <label>Parolă</label>
+            <input
+              type="password"
+              id="parola"
+              placeholder="Ex: Familia#2026"
+              required
+            />
+            <div class="text_ajutator_parola">
+              Minim 8 caractere, o literă mare, una mică, o cifră și un simbol
+              special (@, #,!, etc.)
+            </div>
+          </div>
+
+          <div
+            id="mesajStatus"
+            class="mesaj_eroare"
+            style="
+              display: none;
+              background: rgba(94, 106, 210, 0.2);
+              color: #fff;
+              border-color: var(--culoare_brand);
+            "
+          ></div>
+
+          <button class="btn_actiune_salvare btn_login" type="submit">
+            <span>Înregistrare</span>
+          </button>
+
+          <div class="optiuni_cont">
+            <a href="login.html">Ai deja cont? Conectează-te</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="JavaScript/register.js"></script>
+  </body>
+</html>

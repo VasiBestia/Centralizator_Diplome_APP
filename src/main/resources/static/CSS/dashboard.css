@@ -1,0 +1,562 @@
+.zona_sus_header {
+  grid-column: span 12;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0 10px 20px 10px;
+}
+
+.continut_header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.indicator_badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--culoare_brand);
+  background: rgba(94, 106, 210, 0.1);
+  border: 1px solid rgba(94, 106, 210, 0.2);
+  padding: 4px 10px;
+  border-radius: 100px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.zona_sus_header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  background: linear-gradient(to right, #ffffff, #8a8f98);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+.zona_sus_header p {
+  color: var(--text_secondary);
+  margin-top: 8px;
+  font-size: 1.1rem;
+}
+
+.header_actiuni {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.buton_alerte {
+  position: relative;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: 0.2s;
+}
+
+.badge_notificare {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  background: #ff6b6b;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  display: none;
+}
+
+.profil_utilizator {
+  position: relative;
+  cursor: pointer;
+}
+
+.zona_formular_box {
+  grid-column: span 4;
+}
+
+.zona_statistici_box {
+  grid-column: span 8;
+}
+
+.zona_lista_acte {
+  grid-column: span 12;
+}
+
+.grid_documente_afisate {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.doc-card {
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--bordura_stila);
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.doc-card:hover {
+  border-color: var(--bordura_glow);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.doc-title {
+  font-weight: 500;
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.doc-owner {
+  font-size: 0.85rem;
+  color: var(--text_secondary);
+  margin-bottom: 20px;
+}
+
+.doc-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--bordura_stila);
+  color: var(--text_secondary);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.grid_stats {
+  display: flex;
+}
+
+.card_stat_mic {
+  background: transparent;
+  padding: 10px 0;
+}
+
+.valoare_stat {
+  display: block;
+  font-size: 3.5rem;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: var(--text_alb);
+  line-height: 1.1;
+}
+
+.label_stat {
+  color: var(--text_secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.empty-state {
+  color: var(--text_secondary);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 900px) {
+  .zona_statistici_box,
+  .zona_formular_box {
+    grid-column: span 12;
+  }
+}
+
+.dropdown_profil {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 200px;
+  background: var(--gri_inchis_box);
+  border: 1px solid var(--bordura_stila);
+  border-radius: var(--raza_colturi);
+  box-shadow: var(--umbra_soft);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: none;
+  flex-direction: column;
+  z-index: 100;
+  overflow: hidden;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.dropdown_profil.activ {
+  display: flex;
+}
+
+.dropdown_item {
+  padding: 12px 16px;
+  color: var(--text_alb);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dropdown_item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dropdown_divider {
+  height: 1px;
+  background: var(--bordura_stila);
+}
+
+.input_fisier_personalizat {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px dashed var(--bordura_stila);
+  border-radius: 8px;
+  color: var(--text_alb);
+  width: 100%;
+}
+
+.btn_margine_adaugare {
+  margin-top: 15px;
+}
+
+.panou_notificari_cereri {
+  display: none;
+  grid-column: span 12;
+  background: rgba(255, 193, 7, 0.1);
+  border: 1px solid #ffc107;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.titlu_cereri_galben {
+  color: #ffc107;
+  margin-bottom: 15px;
+}
+
+.container_lista_cereri {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.panou_familie_full {
+  display: none;
+  grid-column: span 12;
+  margin-bottom: 24px;
+}
+
+.flex_familie_container {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.coloana_membri {
+  flex: 1;
+  min-width: 300px;
+}
+
+.lista_fara_puncte {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.coloana_form_membru {
+  flex: 1;
+  min-width: 300px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid var(--bordura_stila);
+}
+
+.label_sectiune_mica {
+  font-size: 0.9rem;
+  color: var(--text_secondary);
+  margin-bottom: 16px;
+}
+
+.rand_inputuri {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.input_flex_1 {
+  flex: 1;
+}
+
+.label_input_mic {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text_secondary);
+  margin-bottom: 6px;
+}
+
+.label_input_gri {
+  color: #bbb;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.8rem;
+}
+
+.input_special_familie {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  outline: none;
+}
+
+.grup_form_special {
+  margin-bottom: 16px;
+}
+
+.grup_form_special:nth-child(3) {
+  margin-bottom: 12px;
+}
+
+.grup_form_special_final {
+  margin-bottom: 24px;
+}
+
+.modal_overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+}
+
+.modal_continut {
+  background: #1a1b1e;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 350px;
+  text-align: center;
+}
+
+.modal_continut h3 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.label_modal_stanga {
+  color: #bbb;
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.select_modal_full {
+  width: 100%;
+  margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.textarea_modal {
+  width: 100%;
+  height: 80px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 10px;
+  resize: none;
+}
+
+.grup_butoane_modal {
+  display: flex;
+  gap: 10px;
+}
+
+.btn_trimite_modal {
+  flex: 1;
+  background: var(--culoare_brand);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn_anuleaza_modal {
+  flex: 1;
+  background: #333;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 15px;
+}
+
+.btn-card {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+}
+
+.btn-card:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.2);
+}
+
+.btn-editare {
+  background: rgba(255, 193, 7, 0.1);
+  color: #ffc107;
+  border-color: rgba(255, 193, 7, 0.4);
+}
+
+.btn-stergere {
+  background: rgba(255, 107, 107, 0.1);
+  color: #ff6b6b;
+  border-color: rgba(255, 107, 107, 0.4);
+}
+
+.btn-descarcare {
+  background: rgba(94, 106, 210, 0.2);
+  color: var(--culoare_brand);
+  border-color: var(--culoare_brand);
+}
+
+.btn-solicita {
+  padding: 12px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
+  color: white;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.cerere-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 12px 18px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cerere-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-cerere {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  color: white;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-cerere:hover {
+  opacity: 0.8;
+}
+
+.btn-vezi {
+  background: #17a2b8;
+}
+.btn-aproba {
+  background: #28a745;
+}
+.btn-respinge {
+  background: #dc3545;
+}
+
+.membru-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nume-membru {
+  color: white;
+  display: block;
+  font-size: 0.95rem;
+}
+
+.email-membru {
+  color: var(--text_secondary);
+  font-size: 0.8rem;
+}
+
+.badge-parinte {
+  color: #28a745;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: rgba(40, 167, 69, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.badge-copil {
+  color: #17a2b8;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: rgba(23, 162, 184, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.btn-modificare {
+  background:
+    linear-gradient(180deg, rgba(255, 193, 7, 0.15) 0%, rgba(0, 0, 0, 0) 100%),
+    #1a1b1e !important;
+  border-color: rgba(255, 193, 7, 0.4) !important;
+}

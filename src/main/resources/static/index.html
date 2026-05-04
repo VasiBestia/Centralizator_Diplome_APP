@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Family Docs - Versiune Finala</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="CSS/global.css" />
+    <link rel="stylesheet" href="CSS/componente.css" />
+    <link rel="stylesheet" href="CSS/dashboard.css" />
+  </head>
+  <body>
+    <div class="fundal_gradient"></div>
+
+    <div class="wrapper_principal">
+      <div class="zona_sus_header">
+        <div class="continut_header">
+          <div class="indicator_badge">Sistem Activ</div>
+          <h1>Documente Familie</h1>
+          <p>Sincronizare și stocare securizată a actelor</p>
+        </div>
+
+        <div class="header_actiuni">
+          <div id="btnAlerte" class="buton_alerte" title="Alerte Expirare">
+            🔔
+            <span id="badgeAlerte" class="badge_notificare">0</span>
+          </div>
+
+          <div class="profil_utilizator" id="btnProfil">
+            <div class="avatar_cerc" id="avatarInitiala"></div>
+            <div class="dropdown_profil" id="dropdownProfil">
+              <a href="settings.html" class="dropdown_item">⚙️ Setări Cont</a>
+              <div class="dropdown_divider"></div>
+              <button id="btnDeconectare" class="dropdown_item text_rosu">
+                🚪 Delogare
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="zona_statistici_box">
+        <div class="header_box_mic">
+          <h2>Sumar Sistem</h2>
+          <div class="linie_decor"></div>
+        </div>
+        <div class="grid_stats">
+          <div class="card_stat_mic">
+            <span class="valoare_stat" id="totalDocs">0</span>
+            <span class="label_stat">Documente Indexate</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="zona_formular_box">
+        <h2>Adaugă Act Nou</h2>
+        <form id="addDocForm">
+          <div class="grup_form">
+            <label>Titlu Document</label>
+            <input
+              type="text"
+              placeholder="ex. Buletin Ion"
+              id="titlu"
+              name="titlu"
+              required
+              autocomplete="off"
+            />
+          </div>
+          <div class="grup_form">
+            <label>Nume Proprietar</label>
+            <input
+              type="text"
+              id="numeProprietar"
+              name="numeProprietar"
+              placeholder="Numele membrului"
+              required
+              autocomplete="off"
+            />
+          </div>
+          <div class="grup_form">
+            <label>Nume Instituție / Emitent</label>
+            <input
+              type="text"
+              id="numeInstitutie"
+              name="numeInstitutie"
+              placeholder="ex. Primăria, Poliția"
+              autocomplete="off"
+            />
+          </div>
+          <div class="grup_form">
+            <label>Data Expirării</label>
+            <input type="date" id="dataExpirare" name="dataExpirare" />
+          </div>
+          <div class="grup_form">
+            <label>Tip Document</label>
+            <div class="wrapper_select">
+              <select id="tip" name="tip">
+                <option value="Identitate">Identitate</option>
+                <option value="Pasaport">Pașaport</option>
+                <option value="Diploma">Diplomă</option>
+                <option value="CertificatCasatorie">
+                  Certificat Căsătorie
+                </option>
+                <option value="ActeCasa">Acte Casă</option>
+                <option value="ActeMasina">Acte Mașină</option>
+              </select>
+            </div>
+          </div>
+          <div class="grup_form">
+            <label>Atașează Fișier (PDF, JPG, PNG)</label>
+            <input
+              class="input_fisier_personalizat"
+              required
+              id="fisierDocument"
+              name="fisier"
+              type="file"
+            />
+          </div>
+
+          <button
+            class="btn_actiune_salvare btn_margine_adaugare"
+            type="submit"
+          >
+            <span>Adaugă Document</span>
+          </button>
+        </form>
+      </div>
+
+      <div id="panou-cereri" class="panou_notificari_cereri">
+        <h3 class="titlu_cereri_galben">🔔 Cereri noi de acces:</h3>
+        <div id="lista-cereri-container" class="container_lista_cereri"></div>
+      </div>
+
+      <div id="panou-familie" class="zona_statistici_box panou_familie_full">
+        <div class="header_box_mic">
+          <h2 class="fara_margine_bottom">👨‍👩‍👧‍👦 Gestiune Familie</h2>
+          <div class="linie_decor"></div>
+        </div>
+
+        <div class="flex_familie_container">
+          <div class="coloana_membri">
+            <h3 class="label_sectiune_mica">Membri Actuali</h3>
+            <ul id="lista-membri-container" class="lista_fara_puncte"></ul>
+          </div>
+
+          <div class="coloana_form_membru">
+            <h3 class="label_sectiune_mica">Adaugă Membru Nou</h3>
+
+            <div class="rand_inputuri">
+              <div class="input_flex_1">
+                <label class="label_input_mic">Nume</label>
+                <input type="text" id="nouNume" placeholder="Nume" required />
+              </div>
+              <div class="input_flex_1">
+                <label class="label_input_mic">Prenume</label>
+                <input
+                  type="text"
+                  id="nouPrenume"
+                  placeholder="Prenume"
+                  required
+                />
+              </div>
+            </div>
+            <div class="grup_form_special">
+              <label class="label_input_gri">CNP</label>
+              <input
+                type="text"
+                id="nouCNP"
+                placeholder="ex: 1900101..."
+                class="input_special_familie"
+              />
+            </div>
+
+            <div class="grup_form_special">
+              <label class="label_input_mic">Email</label>
+              <input
+                type="email"
+                id="nouEmail"
+                placeholder="email@familie.ro"
+                required
+              />
+            </div>
+
+            <div class="grup_form_special">
+              <label class="label_input_mic">Parolă Temporară</label>
+              <input
+                type="password"
+                id="nouParola"
+                placeholder="••••••••"
+                required
+              />
+            </div>
+
+            <div class="grup_form_special_final">
+              <label class="label_input_mic">Rol</label>
+              <select id="nouRol">
+                <option value="0">Copil (Acces Limitat)</option>
+                <option value="1">Părinte (Admin)</option>
+              </select>
+            </div>
+
+            <button
+              onclick="adaugaMembruFamilie()"
+              class="btn_actiune_salvare fara_margine_top"
+            >
+              <span>➕ Creează Cont Membru</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="zona_lista_acte">
+        <div class="header_box_mic">
+          <h2>Registru Documente</h2>
+          <div class="linie_decor"></div>
+        </div>
+        <div id="documentsContainer" class="grid_documente_afisate"></div>
+      </div>
+    </div>
+
+    <div id="modalCerere" class="modal_overlay">
+      <div class="modal_continut">
+        <h3>Solicită Acces</h3>
+        <input type="hidden" id="modalDocId" />
+
+        <label class="label_modal_stanga">Cui îi trimiți cererea?</label>
+        <select id="modalParinte" class="select_modal_full"></select>
+
+        <textarea
+          id="modalMotiv"
+          placeholder="Ex: Îmi trebuie pentru dosarul de la liceu..."
+          class="textarea_modal"
+        ></textarea>
+
+        <div class="grup_butoane_modal">
+          <button onclick="trimiteCerereFinal()" class="btn_trimite_modal">
+            Trimite
+          </button>
+          <button
+            onclick="
+              document.getElementById('modalCerere').style.display = 'none'
+            "
+            class="btn_anuleaza_modal"
+          >
+            Anulează
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="JavaScript/app.js"></script>
+  </body>
+</html>

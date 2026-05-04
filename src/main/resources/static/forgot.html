@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recuperare Parolă - Family Docs</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="CSS/global.css" />
+    <link rel="stylesheet" href="CSS/componente.css" />
+    <link rel="stylesheet" href="CSS/auth.css" />
+  </head>
+  <body class="body_login">
+    <div class="fundal_gradient"></div>
+
+    <div class="wrapper_login">
+      <div class="zona_formular_box box_login_special">
+        <div class="header_login">
+          <div class="avatar_cerc logo_login" style="font-size: 1.2rem">🔒</div>
+          <h2>Resetare Parolă</h2>
+          <p>Verifică-ți identitatea pentru a alege o parolă nouă</p>
+        </div>
+
+        <form id="forgotForm">
+          <div class="grup_form">
+            <label>Email-ul contului</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="email@exemplu.ro"
+              required
+            />
+          </div>
+
+          <div class="grup_form">
+            <label>CNP-ul tău (pentru securitate)</label>
+            <input
+              type="text"
+              id="cnp"
+              placeholder="Introdu cele 13 cifre"
+              required
+              maxlength="13"
+            />
+          </div>
+
+          <div class="grup_form">
+            <label>Parolă Nouă</label>
+            <input
+              type="password"
+              id="parolaNoua"
+              placeholder="Ex: Familia#2026"
+              required
+            />
+            <div class="text_ajutator_parola">
+              Minim 8 caractere, literă mare, literă mică, cifră și simbol.
+            </div>
+          </div>
+
+          <div
+            id="mesajStatus"
+            class="mesaj_eroare"
+            style="display: none; white-space: pre-wrap; text-align: left"
+          ></div>
+
+          <button class="btn_actiune_salvare btn_login" type="submit">
+            <span>Schimbă Parola</span>
+          </button>
+
+          <div class="optiuni_cont">
+            <a href="login.html">Înapoi la Conectare</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="JavaScript/forgot.js"></script>
+  </body>
+</html>
